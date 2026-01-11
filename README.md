@@ -12,7 +12,7 @@ My project is controlled through an interactive terminal where in which the user
 - **SMB/LAN enumeration (Windows/SMB targets):** checks 139/445, runs SMB NSE scripts (signing, protocol versions, OS discovery, NetBIOS info).
 - **Vulnerability scanning (NSE):** runs Nmap vulnerability scripts and saves per-host reports to `{ip}_vuln_scan.json`.
 - **Visual network map:** `index.html` renders the discovered hosts around a central “network” node and colours each host based on its saved risk score.
-
+- **Provides AI feedback:**  Utilises an LLM that reads the vulnerability JSON report and produces a feedback overview of the JSON report with feedback guiding the user in how to improve their security.
 ---
 ## Video Showcasing tool in action
 
