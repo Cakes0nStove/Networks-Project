@@ -2,6 +2,8 @@
 
 As part of my assignment for my mini-project in Networks and Security module, I was tasked with creating a working security solution or system, I decided to create a network scanner.
 
+My project is controlled through an interactive terminal where in which the user inputs their desired host in which they would like to learn more about.
+
 
 ## What it does
 ![alt text](img/img.png)
