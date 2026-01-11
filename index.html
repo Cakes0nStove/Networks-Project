@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Visual Network</title>
+  <link rel="stylesheet" href = "style.css"> 
+</head>
+<body>
+  <!-- // this creates a SVG canvas to draw lines and connecting nodes -->
+<svg id="links" width="600" height="400"
+     style="position:absolute; top:0; left:0; z-index:0;"></svg>
+     <!-- z means that the the canvas is being placed behind the node -->
+
+<div id="nodes" style="position:relative; z-index:1;"></div>
+<!-- creates a container to insert the nodes elements, the position is relative since it is moving as number of nodes change -->
+<!-- Z- places the nodes above the SVG -->
+<h3>Live Hosts</h3>
+
+
+<script>
+ // this is script that conerts the risk score into colour which the more red = more risker
+//  and the more green the less risk. 
+    function scoreToColor(score) {
+  // clamp 0..10
+  score = Math.max(0, Math.min(10, Number(score) || 0));
+  // 0 => green (120deg), 10 => red (0deg)
+  const hue = 120 - (score * 12);
+  return `hsl(${hue}, 90%, 45%)`;
+}
+//gets the name of the file by the id
+function getRiskFileName(ip) {
+  return `${ip}_vuln_scan.json`;
+}
+//get the live host json to load the discovered hosts
+fetch('live_hosts.json')
+  .then(r => r.json())
+  .then(data => {
+    //loads the json data
+    const hosts= data.live_hosts; // the list of Ips displayed
+    const nodesDiv = document.getElementById('nodes');
+    const svg =document.getElementById('links');
+// creates a circular layout and all the nodes are placed around a circle
+    const centerX= 300;
+    const centerY= 200;
+    const radius =140;
+    const step = (2*Math.PI)/hosts.length; // angular space between each host
+//creates variables that prepare the drawing layout
+
+    // Center node, the node that displaye the network range.
+    const center = document.createElement('div');
+    center.className = 'node';
+    center.textContent = data.network;
+    center.style.left = centerX + 'px';
+    center.style.top = centerY + 'px';
+    nodesDiv.appendChild(center);
+
+    // for each host/ ip address, ut draws a line and creates a node which calculates each nodes
+    //x and y coordinates.
+    hosts.forEach((ip, i) => {
+      const angle = i * step;
+      const x = centerX + radius * Math.cos(angle);
+      const y = centerY + radius * Math.sin(angle);
+
+      // draws the lne in SVG using the line element from the center node to host node.
+      const line = document.createElementNS(
+        "http://www.w3.org/2000/svg", "line"
+      );
+      line.setAttribute("x1", centerX);
+      line.setAttribute("y1", centerY);
+      line.setAttribute("x2", x);
+      line.setAttribute("y2", y);
+      line.setAttribute("stroke", "#aaa");
+      svg.appendChild(line);
+
+      // creaes the host node div, the css class node
+      const node = document.createElement('div');
+      node.className = 'node';
+      node.textContent = ip;
+      node.style.left = x + 'px';
+      node.style.top = y + 'px';
+      nodesDiv.appendChild(node);
+
+        // default colour while loading
+        node.style.background = scoreToColor(0);
+
+        // load risk score and recolour
+        fetch(getRiskFileName(ip))
+        .then(r => r.json())
+        .then(report => {
+            const score = report?.risk_assessment?.score;
+            node.style.background = scoreToColor(score);
+            node.title = `Risk: ${report.risk_assessment.level} (${score}/10)`;
+        })
+        .catch(() => {
+            // if file missing, keep default and show tooltip
+            node.title = "no vuln report found";
+        });
+            });
+        });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "host": "10.0.0.7",
+    "state": "up",
+    "timestamp": "2026-01-11T00:32:51.191933",
+    "ports": [
+        {
+
+        }
+    ],
+    "risk_assessment": {
+        "score": 2,
+        "level": "Low",
+        "reasons": [
+            "2 open ports"
+        ]
+    }
+}

@@ -1,0 +1,22 @@
+    body { 
+        font-family: Arial, sans-serif; 
+    }
+    
+    #nodes { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 12px; 
+    padding: 16px; 
+}
+    
+    .node {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    background: #69b3a2;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    }

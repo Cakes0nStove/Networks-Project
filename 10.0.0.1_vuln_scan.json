@@ -1,0 +1,20 @@
+{
+    "host": "10.0.0.1",
+    "state": "up",
+    "timestamp": "2026-01-11T00:43:22.053477",
+    "ports": [
+        {
+        }
+    ],
+    "risk_assessment": {
+        "score": 10,
+        "level": "Critical",
+        "reasons": [
+            "4 open ports",
+            "Vulnerabilities detected",
+            "Vulnerabilities detected",
+            "Vulnerabilities detected",
+            "Critical CVEs present"
+        ]
+    }
+}
