@@ -2,10 +2,6 @@
 
 As part of my assignment for my mini-project in Networks and Security module, I was tasked with creating a working security solution or system, I decided to create a network scanner.
 
-## Tools
-
-
-
 
 ## What it does
 ![alt text](img/img.png)
