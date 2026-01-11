@@ -8,7 +8,7 @@ As part of my assignment for my mini-project in Networks and Security module, I 
 
 
 ## What it does
-
+![alt text](img/img.png)
 - **Host discovery (LAN):** ping-scan a subnet and export discovered live hosts to `live_hosts.json`.
 - **Port / service scanning:** run a quick or aggressive scan to enumerate ports + services and attempt OS/device fingerprinting.
 - **SMB/LAN enumeration (Windows/SMB targets):** checks 139/445, runs SMB NSE scripts (signing, protocol versions, OS discovery, NetBIOS info).
@@ -17,6 +17,7 @@ As part of my assignment for my mini-project in Networks and Security module, I 
 
 ---
 ## Video Showcasing tool in action
+
 [▶️ Click here to watch the demo](img/Mini-Project.mp4)
 
 ## Installation
