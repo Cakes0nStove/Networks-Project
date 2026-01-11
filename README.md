@@ -27,4 +27,5 @@ My project is controlled through an interactive terminal where in which the user
 
 Install:
 ```bash
-pip install python-nmap
+pip install nmap
+pip install ollama 
