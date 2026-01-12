@@ -47,10 +47,10 @@ fetch('live_hosts.json')
 //creates variables that prepare the drawing layout
 
     // Center node, the node that displaye the network range.
-    const center = document.createElement('div');
-    center.className = 'node';
+    const center =document.createElement('div');
+    center.className ='node';
     center.textContent = data.network;
-    center.style.left = centerX + 'px';
+    center.style.left =centerX +'px';
     center.style.top = centerY + 'px';
     nodesDiv.appendChild(center);
 

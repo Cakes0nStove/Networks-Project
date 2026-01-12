@@ -12,7 +12,7 @@ def nmap_scan_with_os(host, port_range='1-1024', scan_type='1'):
         # detailed scan compared to aggressive.
 
         # The aggressive scan includes:
-        # - host staticmethod
+        # - host static method
         # - port information
         # - OS detection
         # - get_traceroute_hops

@@ -29,3 +29,5 @@ Install:
 ```bash
 pip install nmap
 pip install ollama 
+
+Once these are installed, next execute the main.py file and enjoy!
