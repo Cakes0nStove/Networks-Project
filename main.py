@@ -3,7 +3,7 @@ from operating_system import nmap_scan_with_os
 from nse_scripts import vul_scanner, save_scan
 import ipaddress
 import sys
-from AI_overview import ai_overview
+from ai_overview import ai_overview
 
 if __name__ == "__main__":
     networkip= input('input your network ip--->  ')
